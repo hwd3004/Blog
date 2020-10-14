@@ -25,3 +25,25 @@
    morgan - 서버에서 로그 기록을 보여줌
 
    nodemon - 서버 즉각 재실행해주게 하는 라이브러리
+
+---
+
+# 05 Express Start
+
+1. nodemon, babel-node 충돌
+
+   nodemon은 지우고, npm i babel-watch
+
+   package.json에
+
+   "dev-watch" : "babel-watch server/server.js --ignore'./client'"
+
+   추가
+
+   이후 서버 실행은 npm run dev-watch
+
+2. server 폴더에 .babelrc 만들어서
+
+   {
+   "presets": ["@babel/preset-env"]
+   }
