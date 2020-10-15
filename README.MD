@@ -47,3 +47,16 @@
    {
    "presets": ["@babel/preset-env"]
    }
+
+---
+
+# 06 MongoDB Modeling(1)
+
+몽고DB 모델 구축
+
+---
+
+# 08 MongoDB Cluster Connect
+
+몽고DB 아틀라스를 이용하여 클러스터 연결
+
