@@ -63,3 +63,18 @@
 ---
 
 # 09 Router(1)
+
+1. npm run dev-watch 하니 뜨는 에러
+
+   webprograming\Nomad\Blog\server\routes\api\post.js:9
+   router.get("/", async (req, res) => {
+   ^
+   ReferenceError: regeneratorRuntime is not defined
+
+2. 에러가 뜬 파일 상단에 import "@babel/polyfill"; 해주니 해결됨
+
+---
+
+# 10 Router(2)
+
+postman 가입, 설치, 테스트

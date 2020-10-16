@@ -1,4 +1,5 @@
 import express from "express";
+import "@babel/polyfill";
 
 // Model
 import Post from "../../models/post";
