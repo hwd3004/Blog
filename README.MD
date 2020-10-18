@@ -110,3 +110,21 @@ postman 가입, 설치, 테스트
    npx create-react-app .
 
    src에서 assetsm components, redux, routes 폴더 만듬
+
+---
+
+# 15 CRA & Redux(2)
+
+1. 터미널에서 client로 이동한 후에,
+
+   npm i redux react-redux redux-saga react-router-dom connected-react-router bootstrap reactstrap dotenv
+
+2. redux, react-redux - 상태 관리
+
+   redux-saga - 비동기식 상태 관리
+
+   connected-react-router - 리덕스를 사용해서 라우터를 관리
+
+3. npm i history
+
+   history 설치 관련하여 강의 참고
