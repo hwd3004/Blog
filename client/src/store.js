@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from "redux";
-import createMiddleWare from "redux-saga";
+import createSagaMiddleware from "redux-saga";
 import { createBrowserHistory } from "history";
 import { routerMiddleware } from "connected-react-router";
 
@@ -16,12 +16,12 @@ const middlewares = [sagaMiddleware, routerMiddleware(history)];
 const devtools = window.__REDUX_DEVTOOLS_EXTENSIONS_COMPOSE__;
 
 const composeEnhancer =
-  process.env.NODE_ENV === "production" ? compose : dovtools || compose;
+  process.env.NODE_ENV === "production" ? compose : devtools || compose;
 
 const store = createStore(
   createRootReducer(history),
   initialState,
-  composeEnhancer(applyMiddleware(...middleware))
+  composeEnhancer(applyMiddleware(...middlewares))
 );
 
 sagaMiddleware.run(rootSaga);

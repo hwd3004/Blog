@@ -150,3 +150,9 @@ postman 가입, 설치, 테스트
    3. 옛날보단 리덕슬르 배우기가 그나마 조금 쉬워졌다
 
 2. redux 폴더에 reducers, sagas 폴더 만들고 기본세팅
+
+---
+
+# 17 Router Basic Setting
+
+리덕스 설정 파일들 오타 수정, 라우터 기초 세팅
