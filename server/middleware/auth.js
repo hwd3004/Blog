@@ -8,15 +8,15 @@ const auth = (req, res, next) => {
 
   if (!token) {
     return res.status(401).json({ msg: "토큰 없음. 인증 거부됨" });
-  }
-
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({ msg: "토큰값이 유효하지 않음" });
+  } else {
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET);
+      req.user = decoded;
+      next();
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({ msg: "토큰값이 유효하지 않음" });
+    }
   }
 };
 
