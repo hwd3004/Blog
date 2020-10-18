@@ -156,3 +156,11 @@ postman 가입, 설치, 테스트
 # 17 Router Basic Setting
 
 리덕스 설정 파일들 오타 수정, 라우터 기초 세팅
+
+---
+
+# 18 Footer
+
+npm i node-sass sass-loader
+
+서버 재실행
