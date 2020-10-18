@@ -164,3 +164,11 @@ postman 가입, 설치, 테스트
 npm i node-sass sass-loader
 
 서버 재실행
+
+---
+
+# 19 Header(1)
+
+Container, Row, Col 레이아웃 컴포넌트
+
+https://reactstrap.github.io/components/layout/
