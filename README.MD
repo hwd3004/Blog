@@ -100,3 +100,13 @@ postman 가입, 설치, 테스트
 ---
 
 # 13 Auth Routes
+
+---
+
+# 14 CRA & Redux(1)
+
+1. 터미널에서 client 폴더로 이동한 후에
+   
+   npx create-react-app .
+
+   src에서 assetsm components, redux, routes 폴더 만듬
