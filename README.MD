@@ -186,3 +186,9 @@ https://reactstrap.github.io/components/layout/
 # 21 Header(3) - Reducer Setting
 
 헤더에 로그인 모달을 달아서 로그인 구현
+
+---
+
+# 22 Header(4) - LoginModal(1)
+
+터미널에서 client로 가서 npm i axios
