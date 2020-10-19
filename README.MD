@@ -2,9 +2,9 @@
 
 ---
 
-# 04 Exporess, Babel, Mongoose Install
+# 04 Express, Babel, Mongoose Install
 
-1. npm iexpress - 서버 프레임워크
+1. express - 서버 프레임워크
 
    cors - 교차 출처 리소스 공유
 
@@ -109,7 +109,7 @@ postman 가입, 설치, 테스트
    
    npx create-react-app .
 
-   src에서 assetsm components, redux, routes 폴더 만듬
+   src에서 assets, components, redux, routes 폴더 만듬
 
 ---
 
@@ -125,7 +125,7 @@ postman 가입, 설치, 테스트
 
    connected-react-router - 리덕스를 사용해서 라우터를 관리
 
-3. npm i history
+3. npm i history@^4.7.2 
 
    history 설치 관련하여 강의 참고
 
@@ -172,3 +172,11 @@ npm i node-sass sass-loader
 Container, Row, Col 레이아웃 컴포넌트
 
 https://reactstrap.github.io/components/layout/
+
+---
+
+# 20 Header(2)
+
+1. 크롬 브라우저 익스텐션 page ruler redux
+   
+   크롬 브라우저로 웹사이트의 레이아웃 크기를 확인할 수 있음
