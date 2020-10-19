@@ -180,3 +180,9 @@ https://reactstrap.github.io/components/layout/
 1. 크롬 브라우저 익스텐션 page ruler redux
    
    크롬 브라우저로 웹사이트의 레이아웃 크기를 확인할 수 있음
+
+---
+
+# 21 Header(3) - Reducer Setting
+
+헤더에 로그인 모달을 달아서 로그인 구현
