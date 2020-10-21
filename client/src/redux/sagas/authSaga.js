@@ -26,6 +26,7 @@ function* loginUser(loginAction) {
       type: LOGIN_FAILURE,
       payload: error.response,
     });
+    console.log(error);
   }
 }
 

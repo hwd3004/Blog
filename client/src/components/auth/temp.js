@@ -1,20 +1,18 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Button,
-  Form,
-  FormGroup,
-  Input,
-  Label,
+  NavLink,
   Modal,
   ModalHeader,
   ModalBody,
   Alert,
-  NavLink,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { CLEAR_ERROR_REQUEST, LOGIN_REQUEST } from "../../redux/type";
+import { CLEAR_ERROR_REQUEST, LOGIN_REQUEST } from "../../redux/types";
 
 const LoginModal = () => {
   const [modal, setModal] = useState(false);
@@ -23,17 +21,13 @@ const LoginModal = () => {
     email: "",
     password: "",
   });
-
   const dispatch = useDispatch();
-  const { errorMsg } = useSelector((state) => {
-    return state.auth;
-  });
-
+  const { errorMsg } = useSelector((state) => state.auth);
   useEffect(() => {
     try {
       setLocalMsg(errorMsg);
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      console.log(e);
     }
   }, [errorMsg]);
 
@@ -61,9 +55,8 @@ const LoginModal = () => {
       payload: user,
     });
   };
-
   return (
-    <div className="LoginModal">
+    <div>
       <NavLink onClick={handleToggle} href="#">
         Login
       </NavLink>
@@ -71,23 +64,23 @@ const LoginModal = () => {
         <ModalHeader toggle={handleToggle}>Login</ModalHeader>
         <ModalBody>
           {localMsg ? <Alert color="danger">{localMsg}</Alert> : null}
-          <Form>
-            <FormGroup onSubmit={onSubmit}>
+          <Form onSubmit={onSubmit}>
+            <FormGroup>
               <Label for="email">Email</Label>
               <Input
-                onChange={onChange}
                 type="email"
                 name="email"
                 id="email"
                 placeholder="Email"
+                onChange={onChange}
               />
               <Label for="password">Password</Label>
               <Input
-                onChange={onChange}
                 type="password"
                 name="password"
                 id="password"
                 placeholder="Password"
+                onChange={onChange}
               />
               <Button color="dark" style={{ marginTop: "2rem" }} block>
                 Login
