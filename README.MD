@@ -196,3 +196,7 @@ https://reactstrap.github.io/components/layout/
 ---
 
 # 23 Header(4) - LoginModal(2)
+
+---
+
+# 24 Header(5) - AppNavBar Auth
