@@ -33,33 +33,32 @@ const RegisterModal = () => {
     });
     setModal(!modal);
   };
-};
 
-useEffect(() => {
-  try {
-    setLocalMsg(errorMsg);
-  } catch (error) {
-    console.error(error);
-  }
-}, [errorMsg]);
+  useEffect(() => {
+    try {
+      setLocalMsg(errorMsg);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [errorMsg]);
 
-const onChange = (e) => {
-  setValue({
-    ...form,
-    [e.target.name]: e.target.value,
-  });
-};
+  const onChange = (e) => {
+    setValue({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-const onSubmit = (e) => {
-  e.preventDefault();
-  const { name, email, password } = form;
-  const newUser = { name, email, password };
-  console.log(newUser, "newUser");
-  dispatch({
-    type: REGISTER_REQUEST,
-    payload: newUser,
-  });
-
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, password } = form;
+    const newUser = { name, email, password };
+    console.log(newUser, "newUser");
+    dispatch({
+      type: REGISTER_REQUEST,
+      payload: newUser,
+    });
+  };
   return (
     <div className="RegisterModal">
       <NavLink onClick={handleToggle} href="#">
@@ -77,7 +76,7 @@ const onSubmit = (e) => {
                 name="name"
                 id="name"
                 placeholder="Name"
-                onChange={onCHange}
+                onChange={onChange}
               />
               <Label for="email">Email</Label>
               <Input
@@ -85,7 +84,7 @@ const onSubmit = (e) => {
                 name="email"
                 id="email"
                 placeholder="Email"
-                onChange={onCHange}
+                onChange={onChange}
               />
               <Label for="password">Password</Label>
               <Input
@@ -93,7 +92,7 @@ const onSubmit = (e) => {
                 name="password"
                 id="password"
                 placeholder="Password"
-                onChange={onCHange}
+                onChange={onChange}
               />
               <Button color="dark" className="mt-2" block>
                 Register
@@ -105,3 +104,5 @@ const onSubmit = (e) => {
     </div>
   );
 };
+
+export default RegisterModal;

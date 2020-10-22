@@ -204,3 +204,7 @@ https://reactstrap.github.io/components/layout/
 ---
 
 # 25 Header(6) - Register Modal(1)
+
+---
+
+# 26 Header(6) - Register Modal(2)
