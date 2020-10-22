@@ -1,12 +1,18 @@
 import axios from "axios";
 import { call, all, put, takeEvery, fork } from "redux-saga/effects";
 import {
+  CLEAR_ERROR_FAILURE,
+  CLEAR_ERROR_REQUEST,
+  CLEAR_ERROR_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGOUT_FAILURE,
   LOGOUT_REQUEST,
   LOGOUT_SUCCESS,
+  REGISTER_FAILURE,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS,
   USER_LOADING_FAILURE,
   USER_LOADING_REQUEST,
   USER_LOADING_SUCCESS,
@@ -45,12 +51,13 @@ function* watchLoginUser() {
 }
 
 // LOGOUT
-function* logout(action) {
+function* logout() {
   try {
-    yield {
+    yield put({
       type: LOGOUT_SUCCESS,
-    };
+    });
   } catch (error) {
+    console.log(error);
     yield put({
       type: LOGOUT_FAILURE,
     });
@@ -64,7 +71,7 @@ function* watchlogout() {
 // User Loading
 const userLoadingAPI = (token) => {
   console.log(token);
-  
+
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -98,6 +105,58 @@ function* watchuserLoading() {
   yield takeEvery(USER_LOADING_REQUEST, userLoading);
 }
 
+// REGISTER
+const registerUserAPI = (req) => {
+  console.log(req, "req");
+
+  return axios.post("api/user", req);
+};
+
+function* registerUser(action) {
+  try {
+    const result = yield call(registerUserAPI, action.payload);
+    console.log(result, "RegisterUser Data");
+    yield put({
+      type: REGISTER_SUCCESS,
+      payload: result.data,
+    });
+  } catch (error) {
+    yield put({
+      type: REGISTER_FAILURE,
+      payload: error.response,
+    });
+    console.log(error);
+  }
+}
+
+function* watchregisterUser() {
+  yield takeEvery(REGISTER_REQUEST, registerUser);
+}
+
+// Clear Error
+function* clearError(action) {
+  try {
+    yield put({
+      type: CLEAR_ERROR_SUCCESS,
+    });
+  } catch (error) {
+    yield put({
+      type: CLEAR_ERROR_FAILURE,
+    });
+    console.log(error);
+  }
+}
+
+function* watchclearError() {
+  yield takeEvery(CLEAR_ERROR_REQUEST, clearError);
+}
+
 export default function* authSaga() {
-  yield all([fork(watchLoginUser), fork(watchlogout), fork(watchuserLoading)]);
+  yield all([
+    fork(watchLoginUser),
+    fork(watchlogout),
+    fork(watchuserLoading),
+    fork(watchregisterUser),
+    fork(watchclearError),
+  ]);
 }
