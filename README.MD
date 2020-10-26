@@ -226,3 +226,19 @@ https://reactstrap.github.io/components/layout/
 ---
 
 # 30 PostCardList(1)
+
+---
+
+# 31 PostCardList(2)
+
+1. 터미널에서 client로 가서
+
+   npm i react-helmet
+
+2. npm i @fortawesome/react-fontawesome
+
+   @font가 아니라 @fort
+
+3. npm i @fortawesome/free-solid-svg-icons
+
+4. @fortawesome/fontawesome-svg-core 가 없다는 에러가 떠서 설치
