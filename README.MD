@@ -250,3 +250,17 @@ https://reactstrap.github.io/components/layout/
 cd client
 
 npm run eject
+
+---
+
+# 33 CKEditor5 Webpack Setting(2)
+
+npm i @babel/plugin-transform-react-jsx @babel/plugin-transform-react-jsx-self
+
+npm i raw-loader@3 @ckeditor/ckeditor5-dev-utils @ckeditor/ckeditor5-theme-lark @ckeditor/ckeditor5-react
+
+npm i @ckeditor/ckeditor5-editor-classic @ckeditor/ckeditor5-essentials @ckeditor/ckeditor5-paragraph
+
+npm i @ckeditor/ckeditor5-basic-styles
+
+npm uninstall style-loader 하고 npm i style-loader
