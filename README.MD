@@ -264,3 +264,7 @@ npm i @ckeditor/ckeditor5-editor-classic @ckeditor/ckeditor5-essentials @ckedito
 npm i @ckeditor/ckeditor5-basic-styles
 
 npm uninstall style-loader 하고 npm i style-loader
+
+---
+
+# 34 CKEditor5 EditorConfig
