@@ -268,3 +268,9 @@ npm uninstall style-loader 하고 npm i style-loader
 ---
 
 # 34 CKEditor5 EditorConfig
+
+---
+
+# 35 AWS Setting
+
+aws s3 사용
