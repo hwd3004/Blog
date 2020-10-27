@@ -242,3 +242,11 @@ https://reactstrap.github.io/components/layout/
 3. npm i @fortawesome/free-solid-svg-icons
 
 4. @fortawesome/fontawesome-svg-core 가 없다는 에러가 떠서 설치
+
+---
+
+# 32 CKEditor5 Webpack Setting(1)
+
+cd client
+
+npm run eject
