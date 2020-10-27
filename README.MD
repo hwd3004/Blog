@@ -274,3 +274,17 @@ npm uninstall style-loader 하고 npm i style-loader
 # 35 AWS Setting
 
 aws s3 사용
+
+---
+
+# 36 Server Image Router
+
+1. npm i multer multer-s3 path aws-sdk
+
+2. multer는 파일들을 주고 받을 수 있게 도와주는 라이브러리
+   
+   multer-s3는 aws s3와 주고 받을게 있게 도와줌
+
+3. path는 지금 경로를 파악할 수 있도록 도와주는 라이브러리
+
+4. aws-sdk는 aws를 사용할 수 있게 도와주는 개발자 도구
