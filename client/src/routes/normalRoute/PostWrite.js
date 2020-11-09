@@ -36,7 +36,57 @@ const PostWrite = () => {
   };
 
   const getDataFromCKEditor = (event, editor) => {
-    console.log("editor");
+    const data = editor.getData();
+
+    console.log(data);
+
+    if (data && data.match("<img src=")) {
+      const whereImg_start = data.indexOf("<img src=");
+
+      console.log(whereImg_start);
+
+      let whereImg_end = "";
+      let ext_name_find = ""; // 확장자 이름
+      let result_Img_Url = "";
+
+      const ext_name = ["jpeg", "png", "jpg", "gif"];
+
+      for (let i = 0; i < ext_name.length; i++) {
+        if (data.match(ext_name[i])) {
+          console.log(data.indexOf(`${ext_name[i]}`));
+
+          ext_name_find = ext_name[i];
+          whereImg_end = data.indexOf(`${ext_name[i]}`);
+        }
+      }
+
+      console.log(ext_name_find);
+      console.log(whereImg_end);
+
+      // 10인 이유
+      // <img src="https://어쩌구저쩌구"
+      // <부터 0으로 시작해서 "는 9, https 첫 시작의 h가 10이다
+      if (ext_name_find === "jpeg") {
+        result_Img_Url = data.substring(whereImg_start + 10, whereImg_end + 4);
+      } else {
+        result_Img_Url = data.substring(whereImg_start + 10, whereImg_end + 3);
+      }
+
+      console.log(result_Img_Url, "result_Img_Url");
+
+      setValues({
+        ...form,
+        fileUrl: result_Img_Url,
+        contents: data,
+      });
+    } else {
+      setValues({
+        ...form,
+        fileUrl:
+          "https://images.unsplash.com/photo-1573140087145-1447f1ba2302?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        contents: data,
+      });
+    }
   };
 
   return (

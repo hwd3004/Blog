@@ -302,3 +302,7 @@ CKeditor 퉅바 아이콘들 엄청 크게 나오는 현상
 해결방법은 현재 설치된 style-loader 2.0.0 버전을 지우고 1.2.1버전으로 설치
 
 npm i style-loader@1.2.1
+
+---
+
+# 39 CKEditor GetDataFromCKeditor5
