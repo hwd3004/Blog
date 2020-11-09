@@ -22,7 +22,7 @@ const AppNavbar = () => {
     (state) => state.auth
   );
   // authReducer.js의 const initialState의 isAuthenticated, user, userRole을 불러옴
-  console.log(userRole, "userRole");
+  console.log("AppNavBar.js/useSelector", user);
 
   const dispatch = useDispatch();
 
