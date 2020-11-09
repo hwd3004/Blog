@@ -3,6 +3,9 @@ import "@babel/polyfill";
 
 // Model
 import Post from "../../models/post";
+import Category from "../../models/category";
+import User from "../../models/user";
+
 import auth from "../../middleware/auth";
 
 const router = express.Router();
@@ -55,16 +58,69 @@ router.get("/", async (req, res) => {
   res.json(postFindResult);
 });
 
-router.post("/", auth, async (req, res) => {
+// @route POST api/post
+// @desc Create a Post
+// @access Private
+
+router.post("/", auth, uploadS3.none(), async (req, res) => {
   try {
     console.log(req, "req");
-    const { title, contents, fileUrl, creator } = req.body;
+    const { title, contents, fileUrl, creator, category } = req.body;
     const newPost = await Post.create({
       title,
       contents,
       fileUrl,
       creator,
+      date: moment().format("YYYY-MM-DD HH:mm:ss"),
     });
+
+    const findResult = await Category.findOne({
+      categoryName: category,
+    });
+
+    console.log(findResult, "Find Result");
+
+    // 강의에서는 if(isNullOrUndefined(findResult)){...}
+    // 폐기된 메소드를 사용하였다
+    if (findResult) {
+      await Category.findByIdAndUpdate(findResult._id, {
+        $push: { posts: newPost._id },
+      });
+
+      await Post.findByIdAndUpdate(newPost._id, {
+        category: findResult._id,
+      });
+
+      await User.findByIdAndUpdate(req.user.id, {
+        $push: {
+          posts: newPost._id,
+        },
+      });
+
+      return res.redirect(`/api/post/${newPost._id}`);
+    } else {
+      const newCategory = await Category.create({
+        categoryName: category,
+      });
+
+      await Post.findByIdAndUpdate(newPost_id, {
+        // $push는 방금 만든 새 카테고리를 배열로 넣아달라는 뜻
+        $push: { category: newCategory._id },
+      });
+
+      await Category.findByIdAndUpdate(newCategory._id, {
+        $push: { posts: newPost._id },
+      });
+
+      await User.findByIdAndUpdate(req.user.id, {
+        $push: {
+          posts: newPost._id,
+        },
+      });
+
+      return res.redirect(`/api/post/${newPost._id}`);
+    }
+
     res.json(newPost);
   } catch (error) {
     console.log(error);
