@@ -86,7 +86,7 @@ postman 가입, 설치, 테스트
 1. npm i bcryptjs jsonwebtoken
 
 2. bcrypt
-   
+
    비크립트가 뭐하는 것인지 알려면 우선 해쉬를 알아야한다
 
    해쉬는 어떤 값이 있다면, 문장 길이에 관계없이 이것을 어떤 일정한 길이의 값으로 변경할수 있는 코드
@@ -106,7 +106,7 @@ postman 가입, 설치, 테스트
 # 14 CRA & Redux(1)
 
 1. 터미널에서 client 폴더로 이동한 후에
-   
+
    npx create-react-app .
 
    src에서 assets, components, redux, routes 폴더 만듬
@@ -125,7 +125,7 @@ postman 가입, 설치, 테스트
 
    connected-react-router - 리덕스를 사용해서 라우터를 관리
 
-3. npm i history@^4.7.2 
+3. npm i history@^4.7.2
 
    history 설치 관련하여 강의 참고
 
@@ -178,7 +178,7 @@ https://reactstrap.github.io/components/layout/
 # 20 Header(2)
 
 1. 크롬 브라우저 익스텐션 page ruler redux
-   
+
    크롬 브라우저로 웹사이트의 레이아웃 크기를 확인할 수 있음
 
 ---
@@ -282,7 +282,7 @@ aws s3 사용
 1. npm i multer multer-s3 path aws-sdk
 
 2. multer는 파일들을 주고 받을 수 있게 도와주는 라이브러리
-   
+
    multer-s3는 aws s3와 주고 받을게 있게 도와줌
 
 3. path는 지금 경로를 파악할 수 있도록 도와주는 라이브러리
@@ -326,3 +326,11 @@ npm i style-loader@1.2.1
 ---
 
 # 44 Post Detail(3)
+
+---
+
+# 45 Post Detail(4)
+
+포스트 디테일 페이지 보기
+
+<CKEditor editor={BalloonEditor} data={postDetail.contents config={editorConfiguration} disabled="true" />

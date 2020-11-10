@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Button,
   Col,
@@ -13,7 +13,9 @@ import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-editor-classic/src/classiceditor";
 import { editorConfiguration } from "../../components/editor/EditorConfig";
 import MyInit from "../../components/editor/UploadAdapter";
-
+import { POST_UPLOADING_REQUEST } from "../../redux/type";
+import dotenv from "dotenv";
+dotenv.config();
 const PostWrite = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const [form, setValues] = useState({
@@ -23,16 +25,27 @@ const PostWrite = () => {
   });
   const dispatch = useDispatch();
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const { title, contents, fileUrl, category } = form;
+    const token = localStorage.getItem("token");
+    const body = {
+      title,
+      contents,
+      fileUrl,
+      category,
+      token,
+    };
+    dispatch({
+      type: POST_UPLOADING_REQUEST,
+      payload: body,
+    });
+  };
   const onChange = (e) => {
     setValues({
       ...form,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const { title, contents, fileUrl } = form;
   };
 
   const getDataFromCKEditor = (event, editor) => {
@@ -92,7 +105,7 @@ const PostWrite = () => {
   return (
     <div>
       {isAuthenticated ? (
-        <Form>
+        <Form onSubmit={onSubmit}>
           <FormGroup className="mb-3">
             <Label for="title">Title</Label>
             <Input
@@ -128,13 +141,13 @@ const PostWrite = () => {
               block
               className="mt-3 col-md-2 offset-md-10 mb-3"
             >
-              제출하기 기
+              제출하기
             </Button>
           </FormGroup>
         </Form>
       ) : (
         <Col width={50} className="p-5 m-5">
-          <Progress animated color="info"></Progress>
+          <Progress animated color="info" value={100} />
         </Col>
       )}
     </div>
