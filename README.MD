@@ -314,3 +314,7 @@ npm i style-loader@1.2.1
 ---
 
 # 41 Post Upload Saga
+
+---
+
+# 42 Post Detail(1)
