@@ -16,7 +16,7 @@ import MyInit from "../../components/editor/UploadAdapter";
 
 const PostWrite = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
-  const { form, setValues } = useState({
+  const [form, setValues] = useState({
     title: "",
     contents: "",
     fileUrl: "",

@@ -120,6 +120,6 @@ export default function* postSaga() {
   yield all([
     fork(watchLoadPosts),
     fork(watchloadPostDetail),
-    fork(watchloadPostDetail),
+    fork(watchuploadPosts),
   ]);
 }

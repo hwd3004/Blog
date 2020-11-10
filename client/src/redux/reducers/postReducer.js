@@ -85,7 +85,6 @@ export default function (state = initialState, action) {
         postDetail: action.payload,
         creatorId: action.payload._id,
         title: action.payload.title,
-        loading: false,
       };
     case POST_DETAIL_LOADING_FAILURE:
       return {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {} from "react-helmet";
+import { Helmet } from "react-helmet";
 import {
   POST_DETAIL_LOADING_REQUEST,
   POST_DELETE_REQUEST,
@@ -9,6 +9,7 @@ import {
 import { Button, Col, Row } from "reactstrap";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import { Link } from "react-router-dom";
+import { GrowingSpinner } from "../../components/spinner/Spinner";
 
 const PostDetail = (req) => {
   const dispatch = useDispatch();
@@ -82,7 +83,39 @@ const PostDetail = (req) => {
     </>
   );
 
-  return <h1>PostDetail</h1>;
+  console.log("타이틀", title);
+
+  const Body = (
+    <>
+      {userId === creatorId ? EditButton : HomeButton}
+      <Row className="border-bottom border-top border-primary p-3 mb-3 justify-content-between">
+        {(() => {
+          if (postDetail && postDetail.creator) {
+            return (
+              <>
+                <div className="font-wight-bold text-big">
+                  <span className="mr-3">
+                    <Button color="info">
+                      {postDetail.category.categoryName}
+                    </Button>
+                  </span>
+                  {postDetail.title}
+                </div>
+                <div className="align-self-end">{postDetail.creator.name}</div>
+              </>
+            );
+          }
+        })()}
+      </Row>
+    </>
+  );
+
+  return (
+    <div>
+      <Helmet title={`Post | ${title}`} />
+      {loading === true ? GrowingSpinner : Body}
+    </div>
+  );
 };
 
 export default PostDetail;
