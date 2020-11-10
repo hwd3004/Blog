@@ -127,4 +127,19 @@ router.post("/", auth, uploadS3.none(), async (req, res) => {
   }
 });
 
+// @route POST api/post/:id
+// @desc Detail Post
+// @access Public
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.id)
+      .populate("creator", "name")
+      .populate({ path: "category", select: "categoryName" });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
 export default router;
