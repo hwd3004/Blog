@@ -334,3 +334,5 @@ npm i style-loader@1.2.1
 포스트 디테일 페이지 보기
 
 <CKEditor editor={BalloonEditor} data={postDetail.contents config={editorConfiguration} disabled="true" />
+
+# 46 Comment Reducer
