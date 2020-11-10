@@ -65,12 +65,13 @@ router.get("/", async (req, res) => {
 router.post("/", auth, uploadS3.none(), async (req, res) => {
   try {
     console.log(req, "req");
-    const { title, contents, fileUrl, creator, category } = req.body;
+    const { title, contents, fileUrl, category } = req.body;
+
     const newPost = await Post.create({
       title,
       contents,
       fileUrl,
-      creator,
+      creator: req.user.id,
       date: moment().format("YYYY-MM-DD HH:mm:ss"),
     });
 

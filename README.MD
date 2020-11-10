@@ -318,3 +318,7 @@ npm i style-loader@1.2.1
 ---
 
 # 42 Post Detail(1)
+
+---
+
+# 43 Post Detail(2)
